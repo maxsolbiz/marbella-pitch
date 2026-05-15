@@ -80,7 +80,7 @@ export default function CTA() {
             <span className="text-2xl font-display font-bold text-gold">M·AI</span>
             <span className="text-sm text-text-muted">Marbella AI Property Intelligence</span>
           </div>
-          <p className="text-xs text-text-muted">© 2025. Transforming Costa del Sol real estate through artificial intelligence.</p>
+          <p className="text-xs text-text-muted">© {new Date().getFullYear()}. Transforming Costa del Sol real estate through artificial intelligence.</p>
         </motion.footer>
       </div>
     </section>

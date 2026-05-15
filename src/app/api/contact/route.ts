@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(apiKey);
 
     await resend.emails.send({
-      from: "Marbella AI Pitch <noreply@pitch.maxsolbiz.com>",
+      from: "Marbella AI Pitch <noreply@maxsolbiz.com>",
       to: [process.env.TO_EMAIL || "maxsolbiz@gmail.com"],
       replyTo: email,
       subject: `[Marbella AI] New ${role || "general"} inquiry from ${name}`,

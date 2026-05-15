@@ -22,14 +22,28 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pitch.maxsolbiz.com"),
   title: "Marbella AI — Property Intelligence Platform",
   description:
     "AI-powered real estate platform for Marbella & Costa del Sol. Smart search, investment analytics, and broker tools.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: "Marbella AI — Property Intelligence Platform",
     description:
       "AI-powered real estate platform for Marbella & Costa del Sol. Smart search, investment analytics, and broker tools.",
+    url: "https://pitch.maxsolbiz.com",
+    siteName: "Marbella AI",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marbella AI — Property Intelligence Platform",
+    description:
+      "AI-powered real estate platform for Marbella & Costa del Sol. Smart search, investment analytics, and broker tools.",
   },
 };
 
@@ -43,9 +57,7 @@ export default function RootLayout({
       lang="en"
       className={`${dmSans.variable} ${cormorantGaramond.variable} ${jetbrainsMono.variable} h-full antialiased custom-cursor`}
     >
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-      </head>
+      <head />
       <body className="min-h-full bg-midnight">
         <div id="cursor-dot" />
         <div id="cursor-ring" />

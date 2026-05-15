@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useCountUp } from "@/lib/useCountUp";
 
 interface StatCardProps {
   value: string;
@@ -11,37 +10,25 @@ interface StatCardProps {
 }
 
 export default function StatCard({ value, label, className }: StatCardProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
-  const numValue = parseInt(value.replace(/[^0-9]/g, ""));
-  const suffix = value.replace(/[0-9.]/g, "");
+  const parseTarget = (val: string): number => {
+    const cleaned = val.replace(/[^0-9.]/g, "");
+    return parseFloat(cleaned) || 0;
+  };
+
+  const target = parseTarget(value);
+  const suffix = value.replace(/[0-9.,B]/g, "").trim();
   const prefix = value.startsWith("€") ? "€" : "";
 
-  useEffect(() => {
-    if (!isInView || !numValue) return;
-    let start = 0;
-    const duration = 2000;
-    const steps = 60;
-    const increment = numValue / steps;
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= numValue) {
-        setCount(numValue);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, duration / steps);
-    return () => clearInterval(timer);
-  }, [isInView, numValue]);
+  const isDecimal = value.includes(".");
+  const duration = target >= 100 ? 1800 : target >= 10 ? 1500 : 1200;
+
+  const { count, ref } = useCountUp(target, duration);
 
   return (
     <div ref={ref} className={cn("text-center", className)}>
       <div className="text-2xl font-bold font-display text-gold">
         {prefix}
-        {count.toLocaleString()}
+        {isDecimal ? (count / 10).toFixed(1) : count}
         {suffix}
       </div>
       <div className="text-sm text-text-muted mt-1">{label}</div>

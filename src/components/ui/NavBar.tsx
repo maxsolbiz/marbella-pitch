@@ -46,7 +46,7 @@ export default function NavBar() {
               {link.label}
             </a>
           ))}
-          <GlowButton size="sm" onClick={() => document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })}>
+          <GlowButton size="sm" onClick={() => { document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" }); setOpen(false); }}>
             Request Demo
           </GlowButton>
         </div>
@@ -71,7 +71,9 @@ export default function NavBar() {
               {link.label}
             </a>
           ))}
-          <GlowButton size="sm">Request Demo</GlowButton>
+          <GlowButton size="sm" onClick={() => { document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" }); setOpen(false); }}>
+            Request Demo
+          </GlowButton>
         </div>
       )}
     </nav>

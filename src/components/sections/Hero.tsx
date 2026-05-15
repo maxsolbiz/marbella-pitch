@@ -6,25 +6,26 @@ import StatCard from "@/components/ui/StatCard";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-12">
       <div className="absolute inset-0 bg-gradient-to-br from-midnight via-midnight to-obsidian animate-gradient-mesh" />
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal/5 rounded-full blur-[120px]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="w-full lg:w-1/2 text-center lg:text-left"
           >
-            <div className="text-xs tracking-[0.25em] text-text-muted uppercase mb-6 font-medium">
+            <div className="text-[10px] sm:text-xs tracking-[0.25em] text-text-muted uppercase mb-6 font-medium">
               Marbella · Costa del Sol · Spain
             </div>
 
-            <h1 className="font-display text-6xl sm:text-7xl lg:text-8xl leading-[0.95] font-semibold mb-6">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-8xl leading-[0.95] font-semibold mb-6">
               AI Property
               <br />
               <span className="gold-gradient-text">Intelligence</span>
@@ -36,20 +37,20 @@ export default function Hero() {
               Next-generation real estate decision platform for Costa del Sol
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12">
               <GlowButton size="lg" onClick={() => document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })}>
                 Request Demo
               </GlowButton>
               <GlowButton
                 variant="ghost"
                 size="lg"
-                onClick={() => document.getElementById("solution")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })}
               >
                 View Deck →
               </GlowButton>
             </div>
 
-            <div className="flex gap-8">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
               <StatCard value="€2.8B+" label="Market Cap" />
               <StatCard value="300+" label="Brokers Target" />
               <StatCard value="6" label="Languages Support" />
@@ -60,7 +61,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block"
+            className="hidden lg:flex w-full lg:w-1/2 justify-center"
           >
             <div className="glass-card p-6 rounded-2xl relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
